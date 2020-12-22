@@ -1,0 +1,33 @@
+stages:
+  - syntax
+  - test
+
+jobs:
+  include:
+    - stage: syntax
+      name: Syntax Check
+      before_install:
+        - echo "jobs syntax before_install"
+      install:
+        - echo "jobs syntax install"
+      before_script:
+        - echo "jobs syntax before_script"
+      script:
+        - echo "jobs syntax script"
+      after_script:
+        - echo "jobs syntax after_script"
+    - stage: test
+      name: Test
+      script:
+        - echo "jobs test script"
+
+before_install:
+  - echo "before_install"
+install:
+  - echo "install"
+before_script:
+  - echo "before_script"
+script:
+  - echo "script"
+after_script:
+  - echo "after_script"
